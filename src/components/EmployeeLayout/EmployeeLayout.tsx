@@ -5,7 +5,9 @@ import {
     Header,
     NavContainer,
     StyledNavLink,
-    Main
+    Main,
+    LinkLogo,
+
 }
     from "./styles";
 
@@ -19,6 +21,8 @@ function EmployeeLayout({ children }: EmployeeLayoutProps) {
     return (
         <EmployeeLayoutComponent>
             <Header>
+                <LinkLogo to='/'>AppLogo</LinkLogo>
+                {/* <AppLogo onClick={() => navigate('/')}>AppLogo</AppLogo> */}
                 <NavContainer>
                     <StyledNavLink to='/'
                         style={({ isActive }) => ({ textDecoration: isActive ? "underline" : "none" }
