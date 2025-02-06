@@ -1,4 +1,4 @@
-import { ChangeEvent, createContext, useContext, useState } from "react";
+import { useContext } from "react";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
 import * as Yup from 'yup';
@@ -48,7 +48,6 @@ function EmployeeForm() {
     });
     return (
         <EmployeeFormWrapper onSubmit={formik.handleSubmit}>
-            {/* <EmployeeFormStyled> */}
             <InputsWrapper>
                 <Input
                     id="name"
@@ -94,7 +93,6 @@ function EmployeeForm() {
             <ButtonWrapper>
                 <Button name="Create" type="submit" />
             </ButtonWrapper>
-            {/* </EmployeeFormStyled> */}
         </EmployeeFormWrapper>
     );
 }

@@ -1,4 +1,3 @@
-// import Button from "../Button/Button";
 import { useContext } from "react";
 import { AgeData, EmployeeCardWrapper, JobData, Label, NameData, SurnameData } from "./styles";
 import { EmployeeContext } from "../EmployeeLayout/EmployeeLayout";

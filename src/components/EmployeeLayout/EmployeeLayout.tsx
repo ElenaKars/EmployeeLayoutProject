@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router";
 import { EmployeeContextType, EmployeeLayoutProps } from "./types";
 import {
     EmployeeLayoutComponent,
@@ -26,13 +25,11 @@ function EmployeeLayout({ children }: EmployeeLayoutProps) {
         job: ''
     });
 
-    const navigate = useNavigate();
     return (
         <EmployeeContext.Provider value={{ data: formValue, onDataChange: setformValue }}>
             <EmployeeLayoutComponent>
                 <Header>
                     <LinkLogo to='/'>AppLogo</LinkLogo>
-                    {/* <AppLogo onClick={() => navigate('/')}>AppLogo</AppLogo> */}
                     <NavContainer>
                         <StyledNavLink to='/'
                             style={({ isActive }) => ({ textDecoration: isActive ? "underline" : "none" }
