@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { EmployeeLayoutProps } from "./types";
+import { EmployeeContextType, EmployeeLayoutProps } from "./types";
 import {
     EmployeeLayoutComponent,
     Header,
@@ -10,13 +10,22 @@ import {
 
 }
     from "./styles";
+import { createContext, useState } from "react";
+import { EmployeeFormValues } from "../EmployeeForm/types";
 
-// export const EmployeeContext = createContext<EmployeeContextType>({
-//     inputData: '',
-//     onChange: () => { },
-// });
+export const EmployeeContext = createContext<EmployeeContextType>({
+    data: { name: '', surname: '', age: '', job: '' },
+    onDataChange: () => { }
+});
 
 function EmployeeLayout({ children }: EmployeeLayoutProps) {
+    const [formValue, setformValue] = useState<EmployeeFormValues | undefined>({
+        name: '',
+        surname: '',
+        age: '',
+        job: ''
+    });
+
     const navigate = useNavigate();
     return (
         <EmployeeLayoutComponent>

@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
-interface EmployeeCardProps{
-  children: 
-}
+// interface EmployeeCardProps{
+//   children:
+// }
 
 export const EmployeeCardWrapper = styled.div`
   display: flex;

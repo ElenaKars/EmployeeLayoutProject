@@ -1,14 +1,17 @@
-import { createContext } from "react";
+import { ChangeEvent, createContext, useContext, useState } from "react";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { ButtonWrapper, EmployeeFormWrapper, InputsWrapper } from "./styles";
 import { EmployeeFormValues } from "./types";
+import { EmployeeContext } from '../EmployeeLayout/EmployeeLayout';
 
 
 
 function EmployeeForm() {
+    const { data, onDataChange } = useContext(EmployeeContext);
+
     const schema = Yup.object().shape({
         name: Yup.string().required('Field Full Name is required')
             .min(2, "Full Name must be at least 5 characters")
@@ -37,7 +40,7 @@ function EmployeeForm() {
         validationSchema: schema,
         validateOnChange: false,
         onSubmit: (values: EmployeeFormValues) => {
-            console.table(values);
+            setFormValue(values);
         }
     });
     return (
@@ -86,7 +89,7 @@ function EmployeeForm() {
                 />
             </InputsWrapper>
             <ButtonWrapper>
-                <Button name="Create" type="submit" onClick={() => { }} />
+                <Button name="Create" type="submit" onClick={submitData} />
             </ButtonWrapper>
             {/* </EmployeeFormStyled> */}
         </EmployeeFormWrapper>

@@ -1,10 +1,13 @@
-import { ReactNode } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
+import { EmployeeFormValues } from "../EmployeeForm/types";
 
 export interface EmployeeLayoutProps {
   children: ReactNode;
 }
 
-// export interface EmployeeContextType {
-//   inputData: string | number | undefined;
-//   onChange?: Dispatch<SetStateAction<{ Name; age } | undefined>> | (() => void);
-// }
+export interface EmployeeContextType {
+  data: EmployeeFormValues;
+  onDataChange?:
+    | Dispatch<SetStateAction<EmployeeFormValues | undefined>>
+    | (() => void);
+}
