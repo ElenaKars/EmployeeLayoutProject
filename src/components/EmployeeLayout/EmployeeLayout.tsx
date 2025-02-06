@@ -28,21 +28,23 @@ function EmployeeLayout({ children }: EmployeeLayoutProps) {
 
     const navigate = useNavigate();
     return (
-        <EmployeeLayoutComponent>
-            <Header>
-                <LinkLogo to='/'>AppLogo</LinkLogo>
-                {/* <AppLogo onClick={() => navigate('/')}>AppLogo</AppLogo> */}
-                <NavContainer>
-                    <StyledNavLink to='/'
-                        style={({ isActive }) => ({ textDecoration: isActive ? "underline" : "none" }
-                        )}>Create Employee</StyledNavLink>
-                    <StyledNavLink to='/employeeCard'
-                        style={({ isActive }) => ({ textDecoration: isActive ? "underline" : "none" }
-                        )}>Employee</StyledNavLink>
-                </NavContainer>
-            </Header>
-            <Main>{children}</Main>
-        </EmployeeLayoutComponent>
+        <EmployeeContext.Provider value={{ data: formValue, onDataChange: setformValue }}>
+            <EmployeeLayoutComponent>
+                <Header>
+                    <LinkLogo to='/'>AppLogo</LinkLogo>
+                    {/* <AppLogo onClick={() => navigate('/')}>AppLogo</AppLogo> */}
+                    <NavContainer>
+                        <StyledNavLink to='/'
+                            style={({ isActive }) => ({ textDecoration: isActive ? "underline" : "none" }
+                            )}>Create Employee</StyledNavLink>
+                        <StyledNavLink to='/employeeCard'
+                            style={({ isActive }) => ({ textDecoration: isActive ? "underline" : "none" }
+                            )}>Employee</StyledNavLink>
+                    </NavContainer>
+                </Header>
+                <Main>{children}</Main>
+            </EmployeeLayoutComponent>
+        </EmployeeContext.Provider>
     );
 }
 

@@ -6,8 +6,8 @@ export interface EmployeeLayoutProps {
 }
 
 export interface EmployeeContextType {
-  data: EmployeeFormValues;
-  onDataChange?:
+  data: EmployeeFormValues | undefined;
+  onDataChange:
     | Dispatch<SetStateAction<EmployeeFormValues | undefined>>
     | (() => void);
 }

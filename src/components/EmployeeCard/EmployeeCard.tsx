@@ -1,17 +1,21 @@
 // import Button from "../Button/Button";
+import { useContext } from "react";
 import { AgeData, EmployeeCardWrapper, JobData, Label, NameData, SurnameData } from "./styles";
+import { EmployeeContext } from "../EmployeeLayout/EmployeeLayout";
 
 function EmployeeCard() {
+  const { data } = useContext(EmployeeContext);
+
   return (
     <EmployeeCardWrapper>
       <Label>Name</Label>
-      <NameData>Name</NameData>
+      <NameData>{data?.name}</NameData>
       <Label>Surname</Label>
-      <SurnameData>Surname</SurnameData>
+      <SurnameData>{data?.surname}</SurnameData>
       <Label>Age</Label>
-      <AgeData>Age</AgeData>
+      <AgeData>{data?.age}</AgeData>
       <Label>JobPosition</Label>
-      <JobData>JobPosition</JobData>
+      <JobData>{data?.job}</JobData>
     </EmployeeCardWrapper>
   );
 }
